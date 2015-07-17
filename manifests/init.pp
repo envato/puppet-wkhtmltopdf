@@ -3,16 +3,16 @@
 # Examples
 #
 #   include wkhtmltopdf
-class wkhtmltopdf {
+class wkhtmltopdf($version = '0.9.9') {
   include homebrew
   include qt
 
-  homebrew::formula { 'wkhtmltopdf':
+  homebrew::formula { "wkhtmltopdf-${version}":
     before => Package['boxen/brews/wkhtmltopdf'],
   }
 
   package { 'boxen/brews/wkhtmltopdf':
-    ensure  => '0.9.9-boxen1',
+    ensure  => "${version}-boxen1",
     require => Class['qt'],
   }
 }
