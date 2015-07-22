@@ -8,6 +8,11 @@ class Wkhtmltopdf < Formula
 
   depends_on 'boxen/brews/qt'
 
+  patch do
+    url 'https://gist.githubusercontent.com/nemski/ac4af3cf291fdb09ffc9/raw/596b8c9b62e79ba50e4be5568171d7e916d5bb00/file_encoding_option'
+    sha256 '60b3087647384e3a9d0fc17bd89f92732877254d7d7c441ae0c4b999383b2290'
+  end
+
   def install
     # fix that missing TEMP= include
     inreplace 'wkhtmltopdf.pro' do |s|
